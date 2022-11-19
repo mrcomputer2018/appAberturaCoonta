@@ -111,7 +111,7 @@ class App extends Component {
           value={ this.state.limite }
           />
           <Text style={ styles.textSlider }>
-              { this.state.limite.toFixed(2) }
+              { this.state.limite }
           </Text>
         </View>
 
