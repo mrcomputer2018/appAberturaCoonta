@@ -107,11 +107,11 @@ class App extends Component {
           style={ styles.slider }
           minimumValue={0}
           maximumValue={500}
-          onValueChange={(valorSelecionado) => this.setState({ limite: valorSelecionado.toFixed(2) })}
+          onValueChange={(valorSelecionado) => this.setState({ limite: valorSelecionado })}
           value={ this.state.limite }
           />
           <Text style={ styles.textSlider }>
-              { this.state.limite }
+              R$ { this.state.limite.toFixed(1) }
           </Text>
         </View>
 
