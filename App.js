@@ -48,10 +48,7 @@ class App extends Component {
   }
 
   limpar() {
-    this.setState({
-        name: '',
-        age: ''
-    })
+    this.name = '';
   }
 
   render() {
