@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 
-{ View, StyleSheet, Text, TextInput, TouchableOpacity } 
+{ View, StyleSheet, Text, TextInput, TouchableOpacity, Switch } 
 from 'react-native';
 
 import { Picker } from '@react-native-picker/picker';
@@ -19,6 +19,7 @@ class App extends Component {
         {nome: 'Feminino', valor: 2},
       ],
       limite: 250,
+      estudante: false,
     };
 
     this.criar = this.criar.bind(this);
@@ -39,7 +40,9 @@ class App extends Component {
       alert('Conta criada com sucesso!!!\n\n' +
               'Nome: ' + this.state.name +'\n' +
               'Idade: ' + this.state.age + '\n' +
-              'Sexo: ' + this.state.listSexos[this.state.sexo].nome + '\n' 
+              'Sexo: ' + this.state.listSexos[this.state.sexo].nome + '\n' +
+              'Limite Conta: ' + this.state.limite.toFixed(1) + '\n' +
+              'Conta Estudante; ' + ((this.state.estudante) ? 'Ativa' : 'Inativa') + '\n'
       );
     }
   }
@@ -114,6 +117,17 @@ class App extends Component {
               R$ { this.state.limite.toFixed(1) }
           </Text>
         </View>
+        
+       {/*  switch */}
+       <View style={ styles.switchView }>
+        <Text style={ styles.legend }>Estudante:</Text>
+        <Switch 
+        style={ styles.switch }
+        trackColor="#00c300" 
+        value={this.state.estudante} 
+        onValueChange={(valorEstudante) => this.setState({estudante: valorEstudante})}
+        />
+       </View>
 
         {/* buttons */}
         <View style={ styles.btnView }>
@@ -190,8 +204,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 50,
   },
+  sliderView: {
+    margin: 10,
+  },
   slider: { 
     marginTop: 10,
+    backgroundColor: 'whitesmoke',
   },
   textSlider: {
     fontSize: 18,
@@ -199,6 +217,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
   },
+  switchView: {
+    margin: 10,
+  },
+  switch: {
+    padding: 10,
+    backgroundColor: 'whitesmoke',
+  }
 });
 
 export default App;
